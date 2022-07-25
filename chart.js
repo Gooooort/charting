@@ -189,7 +189,6 @@ function unhide() {
     legend.style.display = 'block';
     h1.style.display = 'block';
     button.style.display = 'none';
-    body.style.backgroundImage = 'none';
 }
 function passWord() {
     var pwd = 'password';
