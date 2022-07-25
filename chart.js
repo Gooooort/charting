@@ -206,3 +206,8 @@ function passWord() {
         }
     } 
 }
+async function signIn() {
+  // Sign in Firebase using popup auth and Google as the identity provider.
+  var provider = new GoogleAuthProvider();
+  await signInWithPopup(getAuth(), provider);
+}
