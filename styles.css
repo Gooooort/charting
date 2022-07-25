@@ -1,8 +1,32 @@
 body {
     background-color: #000000f9;
   }
+
+.header h1 {
+    display: none;
+}
+
+.header {
+    text-align: center;
+}
+  #line {
+    display: none;
+  }
+
+  #histo {
+    display: none;
+  }
   
+  .point {
+    padding-right:6px;
+    font-size: 24px; 
+    margin: 4px 0px; 
+    display: inline-block;
+
+  }
+
   #legend {
+    display: none;
 	padding: 8px;
 	font-size: 12px;
 	color: rgb(18, 166, 141);
