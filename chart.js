@@ -143,8 +143,8 @@ function setLastBarText(data, type) {
     
     var date = new Date(data[data.length-1].time*1000);
 	var dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
-	 toolTip.innerHTML = '<div style="font-size: 24px; margin: 4px 0px;"> ETH </div>'+ '<div style="font-size: 22px; margin: 4px 0px;margin: 4px 0px">' + msg + data[data.length-1].value + '</div>' +
-     '<div style="font-size: 22px;margin: 4px 0px">' + dateStr + '</div>';
+	 toolTip.innerHTML = '<div class="point"> ETH </div>'+ '<div class="point">' + msg + data[data.length-1].value + '</div>' +
+     '<div class="point" style="display: block;">' + dateStr + '</div>';
 }
 setLastBarText(lineData, 'price');
 
@@ -155,7 +155,7 @@ lineChart.subscribeCrosshairMove(function(param) {
     date = new Date(param.time*1000);
     dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
     var price = param.seriesPrices.get(lineSeries);
-    toolTip.innerHTML = '<div style="font-size: 24px; margin: 4px 0px"> ETH </div>' + '<div style="font-size: 22px; margin: 4px 0px">' + 'Price (USD): ' + (Math.round(price * 100) / 100).toFixed(2) + '<div style="font-size: 22px; margin: 4px 0px">' + dateStr + '</div>';
+    toolTip.innerHTML = '<div class="point"> ETH </div>' + '<div class="point" >Price (USD):' + (Math.round(price * 100) / 100).toFixed(2) +  '</div>' + '<div class="point" style="display: block;">' + dateStr + '</div>';
   }    
     
   
@@ -168,8 +168,38 @@ lineChart.subscribeCrosshairMove(function(param) {
     date = new Date(param.time*1000);
     dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
     var price = param.seriesPrices.get(volumeSeries);
-    toolTip.innerHTML = '<div style="font-size: 24px; margin: 4px 0px"> ETH </div>' + '<div style="font-size: 22px; margin: 4px 0px">' + 'Volume: ' + price + '<div style="font-size: 22px; margin: 4px 0px">' + dateStr + '</div>';
+    toolTip.innerHTML = '<div class="point"> ETH </div>' + '<div class="point"> Volume: ' + price + '</div>' + '<div class="point" style="display: block;">' + dateStr + '</div>';
   }    
     
   
   });
+
+function unhide() {
+    var line = document.getElementById('line')
+    var histo = document.getElementById('histo')
+    var legend = document.getElementById('legend')
+    var h1 = document.querySelector(".header h1")
+    var button = document.querySelector(".header input")
+    alert('Redirecting')
+    line.style.display = 'block';
+    histo.style.display = 'block';
+    legend.style.display = 'block';
+    h1.style.display = 'block';
+    button.style.display = 'none';
+}
+function passWord() {
+    var pwd = 'password';
+    var input = prompt('Please Enter Your Password','');
+    while (true) {
+        if(input === null){
+            break;
+        }
+        if(input === pwd){
+            unhide()
+            break;
+        }
+        else{
+            var input = prompt('Access Denied - Password Incorrect, Please Try Again.','');
+            }
+        } 
+    }
