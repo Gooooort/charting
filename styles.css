@@ -1,9 +1,20 @@
 body {
-    background-color: #000000f9;
+    background-image: url(https://i.kym-cdn.com/entries/icons/original/000/029/959/Screen_Shot_2019-06-05_at_1.26.32_PM.jpg);
+    background-color: rgba(0, 0, 0);
   }
 
 .header h1 {
+    color:rgb(18, 166, 141);
     display: none;
+}
+.header input {
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #04aa6d;
 }
 
 .header {
