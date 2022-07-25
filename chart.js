@@ -6,7 +6,7 @@ function httpGet(theUrl){
 }
 
 function getCSV(){
-    const url = 'https://raw.githubusercontent.com/Gooooort/charting/main/chart_data.csv?token=GHSAT0AAAAAABV4VAA4DMLPNEUZWW3FDMNCYW56KVA'
+    const url = window.location.origin+'/chart_data.csv';
     const data = httpGet(url);
     return data;
 }
@@ -182,12 +182,14 @@ function unhide() {
     var legend = document.getElementById('legend')
     var h1 = document.querySelector(".header h1")
     var button = document.querySelector(".header input")
+    var body = document.body
     alert('Redirecting')
     line.style.display = 'block';
     histo.style.display = 'block';
     legend.style.display = 'block';
     h1.style.display = 'block';
     button.style.display = 'none';
+    body.style.backgroundImage = 'none';
 }
 function passWord() {
     var pwd = 'password';
