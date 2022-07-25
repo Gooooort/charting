@@ -6,7 +6,7 @@ function httpGet(theUrl){
 }
 
 function getCSV(){
-    const url = 'https://raw.githubusercontent.com/Gooooort/charting/main/chart_data.csv?token=GHSAT0AAAAAABW6CHSUQNS2FXJADPO3UGQ6YW6C3GQ';
+    const url = 'https://gooooort.github.io/charting/chart_data.csv';
     const data = httpGet(url);
     return data;
 }
