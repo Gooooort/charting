@@ -1,4 +1,4 @@
-import {  } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false );
