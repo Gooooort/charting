@@ -1,5 +1,5 @@
 function getCSV(){
-    const url = https://raw.githubusercontent.com/Gooooort/charting/main/chart_data.csv?token=GHSAT0AAAAAABV4VAA4DMLPNEUZWW3FDMNCYW56KVA
+    const url = 'https://raw.githubusercontent.com/Gooooort/charting/main/chart_data.csv?token=GHSAT0AAAAAABV4VAA4DMLPNEUZWW3FDMNCYW56KVA'
     const data = httpGet(url);
     return data;
 }
