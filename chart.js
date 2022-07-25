@@ -151,12 +151,13 @@ setLastBarText(lineData, 'price');
 lineChart.subscribeCrosshairMove(function(param) {
     if ( param === undefined || param.time === undefined || param.point.x < 0 || param.point.x > 1000 || param.point.y < 0 || param.point.y > 500 ) {
         setLastBarText(lineData, 'price');
-  } else {
-    date = new Date(param.time*1000);
-    dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
-    var price = param.seriesPrices.get(lineSeries);
-    toolTip.innerHTML = '<div class="point"> ETH </div>' + '<div class="point" >Price (USD):' + (Math.round(price * 100) / 100).toFixed(2) +  '</div>' + '<div class="point" style="display: block;">' + dateStr + '</div>';
-  }    
+  } 
+    else {
+        date = new Date(param.time*1000);
+        dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
+        var price = param.seriesPrices.get(lineSeries);
+        toolTip.innerHTML = '<div class="point"> ETH </div>' + '<div class="point" >Price (USD):' + (Math.round(price * 100) / 100).toFixed(2) +  '</div>' + '<div class="point" style="display: block;">' + dateStr + '</div>';
+}    
     
   
   });
@@ -164,7 +165,8 @@ lineChart.subscribeCrosshairMove(function(param) {
   histogramChart.subscribeCrosshairMove(function(param) {
     if ( param === undefined || param.time === undefined || param.point.x < 0 || param.point.x > 1000 || param.point.y < 0 || param.point.y > 200 ) {
         setLastBarText(histoData);
-  } else {
+  } 
+    else {
     date = new Date(param.time*1000);
     dateStr = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + getMin(date) + ':0' + String(date.getSeconds());
     var price = param.seriesPrices.get(volumeSeries);
@@ -200,6 +202,6 @@ function passWord() {
         }
         else{
             var input = prompt('Access Denied - Password Incorrect, Please Try Again.','');
-            }
-        } 
-    }
+        }
+    } 
+}
