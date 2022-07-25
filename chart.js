@@ -7,6 +7,7 @@ function httpGet(theUrl){
 
 function getCSV(){
     const url = window.location.origin+'/chart_data.csv';
+    console.log(url);
     const data = httpGet(url);
     return data;
 }
