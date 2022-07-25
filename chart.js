@@ -1,13 +1,5 @@
-function httpGet(theUrl){
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false );
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
 function getCSV(){
-    const url = window.location.origin+'/chart_data.csv';
-    console.log(url);
+    const url = https://raw.githubusercontent.com/Gooooort/charting/main/chart_data.csv?token=GHSAT0AAAAAABV4VAA4DMLPNEUZWW3FDMNCYW56KVA
     const data = httpGet(url);
     return data;
 }
