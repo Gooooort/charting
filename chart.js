@@ -1,3 +1,37 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { getFirestore, doc, getDoc } from 'firebase/firestore/lite';
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBZEJhIdmxhOr6vj65pG_EzCqI8YcNsiIw",
+  authDomain: "charting-45be7.firebaseapp.com",
+  projectId: "charting-45be7",
+  storageBucket: "charting-45be7.appspot.com",
+  messagingSenderId: "1037748598144",
+  appId: "1:1037748598144:web:aa7db0f08ba04a7279bd65",
+  measurementId: "G-TX80CFKDGN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(firebaseApp);
+
+async function loadCity(name) {
+  const cityDoc = doc(db, `cities/${name}`);
+  const snapshot = await getDoc(cityDoc);
+  return {
+    id: snapshot.id,
+    ...snapshot.data(),
+  };
+}
+
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false );
