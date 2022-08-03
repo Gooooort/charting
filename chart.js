@@ -30,7 +30,7 @@ function httpGet(theUrl){
 }
 
 function getCSV(){
-    const url = window.location.origin+'/chart_data.csv';
+    const url = 'https://gooooort.github.io/charting/chart_data.csv';
     const data = httpGet(url);
     return data;
 }
