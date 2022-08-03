@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
-import { getFirestore, doc, getDoc } from 'firebase/firestore/lite';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,16 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const db = getFirestore(firebaseApp);
 
-async function loadCity(name) {
-  const cityDoc = doc(db, `cities/${name}`);
-  const snapshot = await getDoc(cityDoc);
-  return {
-    id: snapshot.id,
-    ...snapshot.data(),
-  };
-}
 
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
@@ -40,7 +30,7 @@ function httpGet(theUrl){
 }
 
 function getCSV(){
-    const url = window.location.origin+'/chart_data.csv';
+    const url = 'https://gooooort.github.io/charting/chart_data.csv';
     const data = httpGet(url);
     return data;
 }
@@ -224,30 +214,17 @@ function unhide() {
     h1.style.display = 'block';
     button.style.display = 'none';
 }
-function passWord() {
-    var pwd = 'password';
-    var input = prompt('Please Enter Your Password','');
-    while (true) {
-        if(input === null){
-            break;
-        }
-        if(input === pwd){
-            unhide()
-            break;
-        }
-        else{
-            var input = prompt('Access Denied - Password Incorrect, Please Try Again.','');
-        }
-    } 
-}
 
-async function signIn() {
+export async function signIn() {
     // Sign in Firebase using popup auth and Google as the identity provider.
     var provider = new GoogleAuthProvider();
-    await signInWithPopup(getAuth(), provider);
-  }
-
-function signOutUser() {
+    let credential = await signInWithPopup(getAuth(), provider);
+    console.log(credential)
+    if (credential._tokenResponse.localId === "ZKlj9FVh0gbo1FhGNbsUjE2PWdB2"){
+        unhide()
+    }
+}
+export function signOutUser() {
     // Sign out of Firebase.
     signOut(getAuth());
-  }
+}
